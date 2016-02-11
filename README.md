@@ -12,3 +12,6 @@ usage: ```google whatever i want to search``` , ```google example search```, ```
 ###Git-Add-Commit-in-One
 python script to add and commit in one command.
 
+###What does the Cowsay
+combination of cowsay + fortunes
+
