@@ -9,5 +9,3 @@ Note: Any of them can get a promotion and may get their own repo in future. <br>
 python script to search google with query from the terminal.<br>
 usage: ```google whatever i want to search``` , ```google example search```, ```google``` etc.
 
-##License
-MIT
