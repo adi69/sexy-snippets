@@ -19,7 +19,7 @@ Error: could not create default cluster. Please create it manually with
 2. `sudo reboot` 
 3. `sudo service postgresql restart` (to refresh with changed settings)
 
-> **init** <BR>
+    init** <BR>
 In Unix-based computer operating systems, init (short for initialization) is the first process started during booting of the computer system. Init is a daemon process that continues running until the system is shut down.
 
 ### Error 2:
@@ -51,5 +51,23 @@ The password-based authentication methods are md5 and password. These methods op
 	After altering this file `sudo service postgresql restart`
 
 
+###PROBLEM 2: 
+    
+####Problem:
+`/vagrant/` is empty
+    
+####Diagnosis:
+If you do sudo apt get update, then, it updates the kernel. You need to rebuild the vbox kernel modules for shared folders to work. 
 
+####Solution:
+1. just vagrant halt and then vagrant up.
 
+```
+# Share an additional folder to the guest VM. The first argument is
+# the path on the host to the actual folder. The second argument is
+# the path on the guest to mount the folder. And the optional third
+# argument is a set of non-required options.
+# config.vm.synced_folder "../data", "/vagrant_data"
+
+config.vm.synced_folder "/Users/apple/Documents/Projects/freshbury_grofers/", "/vagrant_hot"
+```
