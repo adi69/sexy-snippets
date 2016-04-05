@@ -31,7 +31,10 @@ To deactivate virtualenv: `$ deactivate`
 	- Boxes are globally stored for the current user. 
 	- Boxes are broken down into two parts - the username and the box name - separated by a slash. In the example above, the username is "hashicorp", and the box is "precise64" (ubuntu 12.04).
 	- Using a box: `config.vm.box = "hashicorp/precise64"`
+
 	
-* to logout of another user '`exit`
+* `vagrant init` or `vagrant init ubuntu/trusty64` -> `vagrant up` -> `vagrant ssh`
+	
+* to logout of another user `exit`
 * `sudo service --status-all`
 * search packages `sudo aptitude  search postgres`
