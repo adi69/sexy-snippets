@@ -38,3 +38,39 @@ To deactivate virtualenv: `$ deactivate`
 * to logout of another user `exit`
 * `sudo service --status-all`
 * search packages `sudo aptitude  search postgres`
+
+* **PROVISION**
+    - Vagrant has built-in support for automated provisioning. Using this feature, Vagrant will automatically install software when you vagrant up so that the guest machine can be repeatably created and ready-to-use.
+    - Create the following shell script and save it as bootstrap.sh in the same directory as your Vagrantfile:
+    
+   	```
+    #!/usr/bin/env bash
+
+    apt-get update
+    apt-get install -y apache2
+    if ! [ -L /var/www ]; then
+      rm -rf /var/www
+      ln -fs /vagrant /var/www
+    fi
+    ```
+
+    - Add to the _Vagrantfile_: 
+    
+    ```
+    config.vm.provision :shell, path: "bootstrap.sh"
+    ```
+
+    The "provision" line is new, and tells Vagrant to use the shell provisioner to setup the machine, with the bootstrap.sh file. The file path is relative to the location of the project root (where the Vagrantfile is).
+
+    now just vagrant up or if it's already running then `vagrant reload --provision`
+
+* **NETWORKING**
+	
+	```
+	config.vm.network :forwarded_port, guest: 80, host: 4567
+	```
+	Once the machine is running again, load http://127.0.0.1:4567 in your browser. You should see a web page that is being served from the virtual machine that was automatically setup by Vagrant.
+	
+	guest = vagrant; host = machine/system on which vagrant is running
+	
+	
