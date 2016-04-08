@@ -38,6 +38,7 @@ When the “OS X Utilities” screen appears, pull down the ‘Utilities’ menu
 `find find /var/tmp/stuff -delete` or 
 `rm **/*.extension`
 * `rm -r dir` (to Recursively remove directory and contents)
+* `find . -name "foo*"`
 
 ##Django
 * **Django Commands** <br>
@@ -57,12 +58,22 @@ The ```python manage.py <command>``` stored in `app > management > commands` in 
 ```
 
 * If you are adding a new column to a model, then make sure to add a default. If you don’t want the default remove it later. BUT, do it! then python manage.py makemigrations and then migrate
-
+* **related_name**<br>
+	It specifies the name of the reverse relation from the other model to model with foreign key.
+If you don't specify a related_name, Django automatically creates one using the name of your model with the suffix `_set`.
+* **FloatField vs DecimalField** [Link](http://stackoverflow.com/questions/2569015/django-floatfield-or-decimalfield-for-currency) Always use DecimalField for money. The FloatField class is sometimes mixed up with the DecimalField class. Although they both represent real numbers, they represent those numbers differently. FloatField uses Python’s float type internally, while DecimalField uses Python’s Decimal type
+* **File "/Library/Python/2.7/site-packages/django/core/checks/urls.py", 
+AttributeError: 'str' object has no attribute 'regex' --** to comment something inside urlpatterns don't use `'''` as it is a string and not a comment. Use `#`
+* **`blank=True` vs `null=True` --** [Link](http://stackoverflow.com/questions/8609192/differentiate-null-true-blank-true-in-django)
+ 
 ##Git
 * **Push ERROR: Repository not found** <br>
 Check to see if you have *read-write access*
+* `git push <remote-name> <local-branch-name>:<remote-branch-name>`
 
 ##Python
+* classes must be defined before they can be accessed. So the code of a class definition must be above the line where it is accessed.
+* **\_\_repr__ vs \_\_unicode__ vs \_\_str__ ---** unicode and str are same except unicode returns character and str returns bytes. One character maybe more than one byte, so, use unicode. repr is for developers while str is for customers. repr is used to disambiguate between objects. a class can live without str but not without repr. by default str is set to str=repr.  
 * **Check the type of a Python variable ---** 
 `isinstance(x, dict)` /
 `type(s) is dict`
@@ -120,3 +131,4 @@ for document in cursor:
 * **Import postgres dump ---** `psql database-name < ~/Downloads/db.sql`
 * **Export postgres dump ---** `pg_dump database-name > ~/Downloads/db.sql`
 * **Switch Database ---** `\connect DBNAME`
+* **Run server ---** in linux `sudo service postgresql restart`
