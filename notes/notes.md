@@ -23,7 +23,10 @@ export LC_ADDRESS=”en_US.UTF-8″
 export LC_TELEPHONE=”en_US.UTF-8″
 export LC_MEASUREMENT=”en_US.UTF-8″
 export LC_IDENTIFICATION=”en_US.UTF-8″
-LC_ALL=`
+LC_ALL=` <br> 
+execute this in terminal: 
+`export LC_ALL="en_US.UTF-8"
+export LC_CTYPE="en_US.UTF-8"`
 * **System Integrity Protection(SIP) (for El Capitan OS) ---** Apple has enabled a new security oriented feature, often called rootless, in OS X 10.11 onward. It locks down specific system level locations in the file system while simultaneously preventing certain processes from attaching to system-level processes. <br>It locks down the following system level directories in OS X: `/System`, `/sbin`, `/usr` (with the exception of /usr/local subdirectory)
 
 	> Reboot the Mac and hold down `Command + R` keys simultaneously after you hear the startup chime, this will boot OS X into _Recovery Mode_. <br>
@@ -39,6 +42,21 @@ When the “OS X Utilities” screen appears, pull down the ‘Utilities’ menu
 `rm **/*.extension`
 * `rm -r dir` (to Recursively remove directory and contents)
 * `find . -name "foo*"`
+* **Send Email** `sudo apt-get install mailutils` & `ssmtp` configure `/etc/ssmtp/ssmtp.conf` with: 
+
+	> FromLineOverride=NO <br>
+mailhub=smtp.gmail.com:587 <br>
+AuthUser=fdvdfv@gmail.com <br>
+AuthPass=xcsdfasdf <br>
+UseSTARTTLS=YES <br>
+
+	allow less secure apps for gmail [here](http://www.google.com/settings/security/lesssecureapps)
+	`echo 'mail body' | mail -s 'subject' -A '/vagrant/db.sql' recepient@mail.com`
+	
+* **Scrapy** dependencies: `sudo apt-get install python-dev libxml2-dev libxslt1-dev zlib1g-dev`
+* top 20 files/folder in the current directory by size (du == disk usage) `du -a . | sort -rn | head -20`
+* `find . -name "foo*"` to recursively search `tree -P "*foo"`
+* To install lxml on vagrant/unix machine. Allot atleat 1024MB for it.
 
 ##Django
 * **Django Commands** <br>
@@ -65,6 +83,7 @@ If you don't specify a related_name, Django automatically creates one using the 
 * **File "/Library/Python/2.7/site-packages/django/core/checks/urls.py", 
 AttributeError: 'str' object has no attribute 'regex' --** to comment something inside urlpatterns don't use `'''` as it is a string and not a comment. Use `#`
 * **`blank=True` vs `null=True` --** [Link](http://stackoverflow.com/questions/8609192/differentiate-null-true-blank-true-in-django)
+* **Generic Views** are to reduce boilerplate code when you repeatedly use similar code in several views.
  
 ##Git
 * **Push ERROR: Repository not found** <br>
@@ -74,6 +93,7 @@ Check to see if you have *read-write access*
 ##Python
 * classes must be defined before they can be accessed. So the code of a class definition must be above the line where it is accessed.
 * **\_\_repr__ vs \_\_unicode__ vs \_\_str__ ---** unicode and str are same except unicode returns character and str returns bytes. One character maybe more than one byte, so, use unicode. repr is for developers while str is for customers. repr is used to disambiguate between objects. a class can live without str but not without repr. by default str is set to str=repr.  
+* `try` - `except` - `else`(if try is successfull) -`finally` (executed no matter what happens. Even if there is an error, first `finally` is executed then the error is raised. Also called _cleanup action_
 * **Check the type of a Python variable ---** 
 `isinstance(x, dict)` /
 `type(s) is dict`
@@ -100,7 +120,7 @@ Check to see if you have *read-write access*
 (will prepend /ur/local/bin to path variable
 
 	* Method 3: Install with pip's --user option, or using a **virtualenv** - that's best practice for most folks anyway.
-
+ 
 ## PyMongo
 
 ```Python
