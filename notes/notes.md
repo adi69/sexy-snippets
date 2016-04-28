@@ -91,6 +91,8 @@ Check to see if you have *read-write access*
 * `git push <remote-name> <local-branch-name>:<remote-branch-name>`
 
 ##Python
+* **iterator** is a more general concept: any object whose class has a next method (\_\_next\_\_ in Python3) and an \_\_iter__ method that does return self.
+Every **generator** is an iterator, but not vice versa.
 * classes must be defined before they can be accessed. So the code of a class definition must be above the line where it is accessed.
 * **\_\_repr__ vs \_\_unicode__ vs \_\_str__ ---** unicode and str are same except unicode returns character and str returns bytes. One character maybe more than one byte, so, use unicode. repr is for developers while str is for customers. repr is used to disambiguate between objects. a class can live without str but not without repr. by default str is set to str=repr.  
 * `try` - `except` - `else`(if try is successfull) -`finally` (executed no matter what happens. Even if there is an error, first `finally` is executed then the error is raised. Also called _cleanup action_
