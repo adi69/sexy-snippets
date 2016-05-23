@@ -2,9 +2,9 @@
 list directory contents *arranged by type* 
 
 ##Screenshots
-![screenshot1](http://i.imgur.com/TIB2o90.png)
-<br>
 ![screenshot2](http://i.imgur.com/mMyaWi1.png)
+<br>
+![screenshot1](http://i.imgur.com/TIB2o90.png)
 
 ##Instructions
 ```
