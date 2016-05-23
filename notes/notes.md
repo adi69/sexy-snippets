@@ -57,6 +57,12 @@ UseSTARTTLS=YES <br>
 * top 20 files/folder in the current directory by size (du == disk usage) `du -a . | sort -rn | head -20`
 * `find . -name "foo*"` to recursively search `tree -P "*foo"`
 * To install lxml on vagrant/unix machine. Allot atleat 1024MB for it.
+* `ls` options `S` (sort by size) `R` (recursively inside)
+* `httrack "http://www.all.net/" -O "/tmp/www.all.net" "+*.all.net/*" -v`
+In this, we ask httrack to start the URL `http://www.all.net/`<br>
+store the results under the directory `/tmp/www.all.net` (the `-O` stands for "output to")<br>
+not going beyond the bounds of all the files in the `www.all.net` domain<br>
+and printing out any error messages along the way (`-v` means verbose).
 
 ##Django
 * **Django Commands** <br>
@@ -154,3 +160,7 @@ for document in cursor:
 * **Export postgres dump ---** `pg_dump database-name > ~/Downloads/db.sql`
 * **Switch Database ---** `\connect DBNAME`
 * **Run server ---** in linux `sudo service postgresql restart`
+* **Restore Backup ---** if some gives a .backup file then do the following:
+		- `pg_restore -f outputfile.db file.backup` and then execute the import command 
+
+            * In Python, JSON format by default should have `"` and not `'`. TO change use: `json_acceptable_string = my_json_string.replace("'", "\"")`
