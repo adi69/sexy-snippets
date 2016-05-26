@@ -1,0 +1,29 @@
+
+
+import requests
+from bs4 import BeautifulSoup
+
+
+## hckr news main page ============>>
+
+* in scrapy: response.xpath('//*[@class="deadmark"]/following-sibling::a/@href').extract()
+* in bs4:
+
+```
+soup = BeautifulSoup(requests.get('https://news.ycombinator.com/news').content)
+links=soup.find_all('span', attrs={'class':'deadmark'})
+for link in links:
+    webpage.append(link.next_sibling.get('href'))
+```
+
+
+## Inside each link ================>>
+
+```
+content = BeautifulSoup(requests.get(webpage).content).body.get_text()
+```
+
+## Analysing the Content ==========>>
+#TODO: run algo on content to find the highlights of the content
+
+use boilerplate
