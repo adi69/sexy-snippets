@@ -15,3 +15,9 @@ python script to add and commit in one command.
 ###What does the Cowsay
 combination of cowsay + fortunes
 
+###HN-Top
+Summarization of (Hacker News)[https://news.ycombinator.com/news] articles. Good for cases where the heading is vague.
+
+###ls-group-by-type
+The name says it all. Terminal command to show list of files grouped by type. Written in Python.
+
