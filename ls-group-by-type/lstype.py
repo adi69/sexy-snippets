@@ -26,6 +26,7 @@ def print_list(items):
 
 def pretty_print(D):
     others = []
+
     for key, items in D.items():
         if len(items) <= 1:
             others += items
@@ -33,8 +34,10 @@ def pretty_print(D):
         print (color.BOLD + color.RED + key.upper() + ':' + color.END)
         print_list(items)
         print ('\n')
-    print(color.BOLD + color.RED + 'OTHERS:' + color.END)
-    print_list(others)
+    
+    if others:
+        print(color.BOLD + color.RED + 'OTHERS:' + color.END)
+        print_list(others)
 
 
 def arrange_by_type(dirs):
