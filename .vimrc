@@ -103,4 +103,3 @@ set laststatus=2
 set statusline+=%F
 set statusline+=\ \ col:\ %c,
 
-execute pathogen#infect()
