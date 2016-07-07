@@ -14,14 +14,16 @@ class color:
    UNDERLINE = '\033[4m'
    END = '\033[0m'
 
+
 def print_list(items):
     counter = 0
-    for item in items:
-        if counter == 2:
+    for sno, item in enumerate(items):
+        if counter == 1:
             print ('')
             counter = 0
         else: counter += 1
-        print (item.ljust(50)), 
+        item = color.DARKCYAN + str(sno + 1) + '. ' + color.END + item
+        print (item.ljust(70)), 
 
 
 def pretty_print(D):
