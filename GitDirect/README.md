@@ -3,15 +3,15 @@ Hassle free **Pull Request** right from terminal. <br>
 It will open the default web browser with the appopriate pull request
 
 ## Instructions
-* for merging the current to another branch, write: 
-`gitpr branch-name`
+* raising PR for current repo: 
+`pr target-branch-name`
 
-* if you want to specify both the branches, write:
-`gitpr branch1 branch2`
+* push current branch and raise PR:
+`pushpr target-branch-name`
 
 ## Installation
 * Clone the repo
-* Add alias for gitpr in ~/.zshrc or ~/.bashrc to path/to/repo/gitDirect.py
+* Add in ~/.zshrc or ~/.bashrc: `source  path/to/repo/git-push-pr-shortcut.sh`
 
 ## Future Work
 * No need to open browser
